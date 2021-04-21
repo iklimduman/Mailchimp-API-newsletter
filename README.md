@@ -5,5 +5,5 @@
 </p> According to the login status code, Success.html or fail.html is served. </p>
 <p><strong> TODO </strong></p>
 <li>
- Deploying server with Hareku 
+ Deploying server with Heroku 
   </li>
