@@ -54,6 +54,16 @@ app.post("/",function(req,res){
   }
 
   const request = https.request(url,options,function(response){
+
+    if(response.statusCode == 200){
+      console.log("Succesfully subscribed!");
+      res.sendFile(__dirname+"/success.html")
+    }
+    else{
+      res.sendFile(__dirname+"/failure.html");
+      console.log("An error occured");
+    }
+
     response.on("data",function(data){
       console.log(JSON.parse(data));
     })
@@ -62,6 +72,10 @@ app.post("/",function(req,res){
   request.write(jsonData);
   request.end();
 
+})
+
+app.post("/failure",function(req,res){
+  res.redirect("/");
 })
 
 
